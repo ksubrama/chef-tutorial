@@ -11,15 +11,15 @@ package 'ntpdate' do
   action :install
 end
 
-template "/etc/ntp.conf" do
+template '/etc/ntp.conf' do
   action :create_if_missing
-  source "ntp.erb"
-  mode "0644"
-  owner "root"
-  group "root"
+  source 'ntp.erb'
+  mode '0644'
+  owner 'root'
+  group 'root'
 end
 
-service "ntpd" do
+service 'ntpd' do
   action [:start, :enable]
 end
 
