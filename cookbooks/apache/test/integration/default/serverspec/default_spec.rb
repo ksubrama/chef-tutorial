@@ -12,11 +12,16 @@ describe 'apache' do
   end
 
   describe port(80) do
-    it { should be_listening.on('127.0.0.1').with('tcp') }
+    it { should be_listening.with('tcp') }
+  end
+
+  describe file('/var/www/html/index.html') do
+    it { should be_file}
+    it { should contain('Hello') }
   end
 
   describe command('curl http://localhost/') do
     its(:exit_status) { should eq 0 }
-    its(:stdout) { should match /hello/ }
+    its(:stdout) { should match /Hello/ }
   end 
 end

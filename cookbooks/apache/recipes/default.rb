@@ -10,3 +10,10 @@ end
 service 'httpd' do
   action [:start, :enable]
 end
+
+template '/var/www/html/index.html' do
+  source 'index.html.erb'
+  group 'root'
+  mode '0644'
+  user 'root'
+end
