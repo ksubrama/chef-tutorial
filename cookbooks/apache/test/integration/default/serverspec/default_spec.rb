@@ -23,5 +23,10 @@ describe 'apache' do
   describe command('curl http://localhost/') do
     its(:exit_status) { should eq 0 }
     its(:stdout) { should match /Hello/ }
-  end 
+  end
+
+  describe service('iptables') do
+    it { should be_stopped }
+    it { should be_disabled }
+  end
 end
