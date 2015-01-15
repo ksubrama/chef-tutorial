@@ -4,13 +4,27 @@
 </head>
 <body>
 	<h1><%= node["apache"]["greeting"] %></h1>
-	<h2>My name is <%= node["fqdn"] %></h2>
+
+	<h3>My name is <%= node["fqdn"] %></h2>
 	<p>
 	Hello World!
-	This is a <%= node["platform"] %> <%= node["platform_version"] %> server.
 	</p>
+
+	<h3>My stats</h3>
 	<p>
-	RAM: <%= node["memory"]["total"] %>.
+			<ul>
+				<li>RAM: <%= node["memory"]["total"] %></li>
+				<li>Platform: <%= node["platform"] %> Version: <%= node["platform_version"] %></li>
+			</ul>
+	</p>
+
+	<h3>My Neighborhood</h3>
+	<p>
+		<ul>
+			<% @neighbors.each do |neighbor| %>
+				<li><%= neighbor["fqdn"] %></li>
+			<% end %>
+		</ul>
 	</p>
 </body>
 </html>
