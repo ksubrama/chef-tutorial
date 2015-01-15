@@ -1,0 +1,8 @@
+{
+	"name": "",
+	"description": "Base role applied to all servers",
+	"run_list": [
+		"recipe[motd]",
+		"recipe[ntpd]"
+	]
+}
