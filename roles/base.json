@@ -1,8 +1,11 @@
 {
-	"name": "",
+	"name": "base",
 	"description": "Base role applied to all servers",
 	"run_list": [
 		"recipe[motd]",
-		"recipe[ntpd]"
-	]
+		"recipe[ntp]"
+	],
+	"default_attributes": {
+		"company_name": "Chef Software, Inc"
+	}
 }
